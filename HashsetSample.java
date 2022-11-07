@@ -38,10 +38,9 @@ public class HashsetSample{
 		break;
 
 		case 3:
-			System.out.println("Enter Id number: ");
-			String updateID =  sc.nextLine();
-			System.out.println("Enter new Data");
-			String newData = sc.nextLine();
+			for(String i : student.keySet()){
+				System.out.println("ID Number: "+ i + " ______" + "Name: " + student.get(i));
+			}
 		break;
 
 		case 4:
