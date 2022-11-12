@@ -17,7 +17,7 @@ public class HashsetSample{
 
 	while(true){
 		System.out.println("Enter Choice");
-		int choice = Integer.parseInt(sc.nextLine());
+		int choice = Integer.parseInt(sc.nextLine()); //ask for string input then converts it to and integer
 
 
 		switch(choice){
