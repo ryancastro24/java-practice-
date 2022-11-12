@@ -1,34 +1,62 @@
 
 import  java.util.*;
-
-
+import java.io.*;
 
 
 public class Main{
 
-	public static void myMethod(){
-		System.out.println("hello world");
-	}
+ //public static void transferFile(String names)
 
+    final static String outputFilePath
+        = "ryan.txt";
 
-	public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
-	HashMap<String, String> students = new HashMap<String,String>(); // this is to create new array list
-	int i = 0;
-
-	while(i < 3){
-		System.out.println("Enter ID");
-		String id = sc.nextLine();
-		System.out.println("Enter Name");
-		String name =  sc.nextLine();
-
-		students.put(id, name);
-	i++;
-}
-
-	for(String  j : students.keySet()){
-		System.out.println("key: " + j + " value: " + students.get(j));
-	}
-
+public static void main(String[] args) {
+  // create new HashMap
+        HashMap<String, String> map
+            = new HashMap<String, String>();
+  
+        // key-value pairs
+        map.put("rohit", "one");
+        map.put("Sam", "two");
+        map.put("jainie", "three");
+  
+        // new file object
+        File file = new File(outputFilePath);
+  
+        BufferedWriter bf = null;
+  
+        try {
+  
+            // create new BufferedWriter for the output file
+            bf = new BufferedWriter(new FileWriter(file));
+  
+            // iterate map entries
+            for (Map.Entry<String, String> entry :
+                 map.entrySet()) {
+  
+                // put key and value separated by a colon
+                bf.write(entry.getKey() + ":"
+                         + entry.getValue());
+  
+                // new line
+                bf.newLine();
+            }
+  
+            bf.flush();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+  
+            try {
+  
+                // always close the writer
+                bf.close();
+            }
+            catch (Exception e) {
+            }
+        }
+ 
 }//end of main method
 }
